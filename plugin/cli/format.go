@@ -6,7 +6,7 @@ import (
 
 	// external
 	"github.com/k0kubun/pp"
-	"github.com/sniperkit/snk.golang.cobra"
+	"github.com/spf13/cobra"
 
 	// internal - core
 	impi "github.com/sniperkit/snk.golang.impi/pkg"

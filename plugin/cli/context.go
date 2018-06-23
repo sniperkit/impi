@@ -4,6 +4,9 @@ import (
 	"fmt"
 	"os"
 
+	// external
+	homedir "github.com/mitchellh/go-homedir"
+
 	// internal - core
 	conf "github.com/sniperkit/snk.golang.impi/pkg/config"
 	ver "github.com/sniperkit/snk.golang.impi/pkg/version"

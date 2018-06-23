@@ -4,9 +4,13 @@ import (
 	"fmt"
 	"os"
 	"runtime"
+	"strings"
 
 	// external
-	"github.com/sniperkit/snk.golang.cobra"
+	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
+	// "github.com/sniperkit/snk.golang.cobra"
+	// "github.com/sniperkit/snk.golang.viper"
 
 	// internal - core
 	conf "github.com/sniperkit/snk.golang.impi/pkg/config"
@@ -55,8 +59,6 @@ func setRuntimeLimit(max int) {
 
 }
 
-// 	newPackage := flag.Arg(0)
-
 func init() {
 
 	numCPUs := runtime.NumCPU()
@@ -67,13 +69,20 @@ func init() {
 	flags.StringVarP(&options.output, "output", "o", "color", "output type")
 	flags.StringVarP(&options.dirConf, "conf-dir", "c", ".goimpi.yaml", "write config to prefix dir, default XGDB Base directory.")
 
-	flags.IntVarP(&options.numCPUs, "max-procs", "m", numCPUs, "max parallel processes. (default: number of cores of the local machine).")
-
+	// config file
+	configInfo := fmt.Sprintf("config file (default is $HOME/.%s.yaml)", strings.ToLower(conf.ProgramName))
+	flags.PersistentFlags().StringVar(&cfgFile, "conf", "", configInfo)
 	flags.BoolVarP(&options.writeConf, "write-conf", "w", true, "write config file to xgd dir")
+
+	flags.IntVarP(&options.numCPUs, "max-procs", "m", numCPUs, "max parallel processes. (default: number of cores of the local machine).")
 
 	flags.BoolVarP(&options.dryMode, "dry-mode", "n", false, "don't make any changes; perform checks only")
 	flags.BoolVarP(&options.version, "version", "v", false, "display version")
 	flags.BoolVarP(&options.debug, "debug", "d", false, "debug mode")
+
+	viper.SetDefault("author", "NAME HERE <EMAIL ADDRESS>")
+	viper.SetDefault("license", "MIT")
+
 }
 
 func getConfiguration() (*conf.Config, error) {

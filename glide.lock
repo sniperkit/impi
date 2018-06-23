@@ -1,5 +1,5 @@
-hash: ffa55cb6ee10aa64d3778046b6734453ee458aef467e9c262fb2a8ee1f26873b
-updated: 2018-06-23T16:58:00.662767585+02:00
+hash: f46915c83a17c183ff9b692afb5ae35d66ca662692f443c234e9006dd366a649
+updated: 2018-06-23T19:05:16.386395465+02:00
 imports:
 - name: github.com/briandowns/spinner
   version: 1567cd82701bfb2399ea275d7b44a50861f830d4
@@ -7,24 +7,58 @@ imports:
   version: 21470bfc93b9903bce0beaebb037b1d04d0be523
 - name: github.com/fatih/color
   version: 2d684516a8861da43017284349b7e303e809ac21
+- name: github.com/fsnotify/fsnotify
+  version: c2828203cd70a50dcccfb2761f8b1f8ceef9a8e9
+- name: github.com/hashicorp/hcl
+  version: ef8a98b0bbce4a65b5aa4c368430a80ddc533168
+  subpackages:
+  - hcl/ast
+  - hcl/parser
+  - hcl/printer
+  - hcl/scanner
+  - hcl/strconv
+  - hcl/token
+  - json/parser
+  - json/scanner
+  - json/token
 - name: github.com/inconshreveable/mousetrap
   version: 76626ae9c91c4f2a10f34cad8ce83ea42c93bb75
+- name: github.com/k0kubun/pp
+  version: e057ee7a28277be4d2af303443b6da377768181f
 - name: github.com/kisielk/gotool
   version: 80517062f582ea3340cd4baf70e86d539ae7d84d
   subpackages:
   - internal/load
+- name: github.com/magiconair/properties
+  version: c2353362d570a7bfa228149c62842019201cfb71
 - name: github.com/mattn/go-colorable
   version: efa589957cd060542a26d2dd7832fd6a6c6c3ade
 - name: github.com/mattn/go-isatty
   version: 6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c
 - name: github.com/mgutz/ansi
   version: 9520e82c474b0a04dd04f8a40959027271bab992
+- name: github.com/mitchellh/go-homedir
+  version: 3864e76763d94a6df2f9960b16a20a33da9f9a66
+- name: github.com/mitchellh/mapstructure
+  version: bb74f1db0675b241733089d5a1faa5dd8b0ef57b
+- name: github.com/pelletier/go-toml
+  version: c01d1270ff3e442a8a57cddc1c92dc1138598194
 - name: github.com/sirupsen/logrus
   version: 75068beb13ada9c0ddde611f678523fda7352650
+- name: github.com/spf13/afero
+  version: 787d034dfe70e44075ccc060d346146ef53270ad
+  subpackages:
+  - mem
+- name: github.com/spf13/cast
+  version: 8965335b8c7107321228e3e3702cab9832751bac
 - name: github.com/spf13/cobra
   version: 1e58aa3361fd650121dceeedc399e7189c05674a
+- name: github.com/spf13/jwalterweatherman
+  version: 7c0cea34c8ece3fbeb2b27ab9b59511d360fb394
 - name: github.com/spf13/pflag
   version: 3ebe029320b2676d667ae88da602a5f854788a8a
+- name: github.com/spf13/viper
+  version: 15738813a09db5c8e5b60a19d67d3f9bd38da3a4
 - name: github.com/x-cray/logrus-prefixed-formatter
   version: bb2702d423886830dee131692131d35648c382e2
 - name: golang.org/x/crypto
@@ -36,6 +70,11 @@ imports:
   subpackages:
   - unix
   - windows
+- name: golang.org/x/text
+  version: 5cec4b58c438bd98288aeb248bab2c1840713d21
+  subpackages:
+  - transform
+  - unicode/norm
 - name: gopkg.in/yaml.v2
   version: 5420a8b6744d3b0345ab293f6fcba19c978f1183
 testImports:

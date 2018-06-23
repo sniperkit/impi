@@ -4,7 +4,7 @@ import (
 	"context"
 
 	// external
-	"github.com/sniperkit/snk.golang.cobra"
+	"github.com/spf13/cobra"
 )
 
 var checker = map[string]func(ctx context.Context, args []string){

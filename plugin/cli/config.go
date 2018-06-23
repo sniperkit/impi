@@ -5,7 +5,12 @@ import (
 	"strings"
 
 	// external
-	"github.com/sniperkit/snk.golang.cobra"
+	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
+	// "github.com/sniperkit/snk.golang.cobra"
+	// "github.com/sniperkit/snk.golang.viper"
+
+	// internal
 	conf "github.com/sniperkit/snk.golang.impi/pkg/config"
 )
 
@@ -93,6 +98,30 @@ func init() {
 
 	ConfigCmd.Flags().StringVarP(&configFormat, "skip-paths", "p", "", validFormatInfo)
 	RootCmd.AddCommand(ConfigCmd)
+}
+
+func initConfig() {
+	// Don't forget to read config either from cfgFile or from home directory!
+	if cfgFile != "" {
+		// Use config file from the flag.
+		viper.SetConfigFile(cfgFile)
+	} else {
+		// Find home directory.
+		home, err := homedir.Dir()
+		if err != nil {
+			fmt.Println(err)
+			os.Exit(1)
+		}
+
+		// Search config in home directory with name ".cobra" (without extension).
+		viper.AddConfigPath(home)
+		viper.SetConfigName(".cobra")
+	}
+
+	if err := viper.ReadInConfig(); err != nil {
+		fmt.Println("Can't read config:", err)
+		os.Exit(1)
+	}
 }
 
 type skipPathsList []string
