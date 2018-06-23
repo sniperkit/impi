@@ -6,6 +6,8 @@ import (
 	impi "github.com/sniperkit/snk.golang.impi/pkg"
 )
 
+const defaultSchemeSperator = "\n"
+
 type Scheme struct {
 	AutoSave   bool                     `json:"auto_save" yaml:"auto_save" toml:"auto_save"`
 	StrictMode bool                     `json:"strict_mode" yaml:"strict_mode" toml:"strict_mode"`

@@ -13,33 +13,26 @@ import (
 	out "github.com/sniperkit/snk.golang.impi/pkg/output"
 )
 
-// configuration is...
-var configuration *conf.Config
-
-var (
-	programName string
-	numCPUs     int
-)
-
-// options defines...
-var options struct {
-	mapping   map[string]string
-	numCPUs   int
-	match     string
-	scheme    string
-	output    string
-	dirConf   string
-	writeConf bool
-	dryMode   bool
-	version   bool
-	debug     bool
-}
-
 // RootCmd is the root command for limo
 var RootCmd = &cobra.Command{
 	Use:   conf.ProgramName,
 	Short: "A CLI for formating import packages.",
 	Long:  fmt.Sprintf(`%s allows you to formating import packages and group them by section in your code.`, conf.ProgramName),
+	PersistentPreRun: func(cmd *cobra.Command, args []string) {
+		fmt.Printf("Inside rootCmd PersistentPreRun with args: %v\n", args)
+	},
+	PreRun: func(cmd *cobra.Command, args []string) {
+		fmt.Printf("Inside rootCmd PreRun with args: %v\n", args)
+	},
+	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Printf("Inside rootCmd Run with args: %v\n", args)
+	},
+	PostRun: func(cmd *cobra.Command, args []string) {
+		fmt.Printf("Inside rootCmd PostRun with args: %v\n", args)
+	},
+	PersistentPostRun: func(cmd *cobra.Command, args []string) {
+		fmt.Printf("Inside rootCmd PersistentPostRun with args: %v\n", args)
+	},
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.

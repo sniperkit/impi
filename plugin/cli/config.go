@@ -6,16 +6,19 @@ import (
 
 	// external
 	"github.com/sniperkit/snk.golang.cobra"
-	// conf "github.com/sniperkit/snk.golang.impi/pkg/config"
+	conf "github.com/sniperkit/snk.golang.impi/pkg/config"
 )
 
-const defaultSchemeSperator = "\n"
+// configuration is...
+var configuration *conf.Config
 
 var (
+	programName  string
 	configFormat string = ""
+	numCPUs      int
+)
 
-	currentPackageURI string = ""
-
+var (
 	validConfigExportFormats = []string{"yaml"}
 
 	defaultSchemeConfig = &Scheme{
